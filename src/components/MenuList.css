@@ -1,11 +1,14 @@
+.main-menu {
+    padding: 20px;
+}
 .side-options {
-    background-color: aqua;
+    background-color: rgb(246, 246, 246);
     display: flex;
     flex-direction: column;
 }
 
 .selected-menu-container {
-    background-color: rgb(145, 145, 255);
+    background-color: rgb(234, 234, 234);
 }
 
 .menu-button {
@@ -20,4 +23,11 @@
 .item-object-properties {
     display: flex;
     flex-direction: column;
+}
+.cart-options {
+    display: flex;
+    background-color: rgb(234, 234, 234);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-left: 20px;
 }

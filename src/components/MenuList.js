@@ -89,7 +89,7 @@ function MenuList() {
       return (
         <div>
           <Container>
-            <Row>
+            <Row className="main-menu">
               <Col md={2} className="side-options">
                 <button className="menu-button">Appetizers</button>
                 <button className="menu-button" onClick={() => handleClick("entree")}>Entree</button>
@@ -104,7 +104,9 @@ function MenuList() {
               </Col>
             </Row>
             <Row>
+                <Col className="cart-options" md={12}>
                 hello, this is where the cart will go :)
+                </Col>
             </Row>
           </Container>
         </div>
