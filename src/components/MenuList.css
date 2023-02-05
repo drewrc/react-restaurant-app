@@ -1,0 +1,23 @@
+.side-options {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+
+.selected-menu-container {
+    background-color: rgb(145, 145, 255);
+}
+
+.menu-button {
+    background-color: rgb(161, 158, 158);
+    border: none;
+}
+
+.menu-button:hover {
+    background-color: rgb(213, 213, 213);
+    border: none;
+}
+.item-object-properties {
+    display: flex;
+    flex-direction: column;
+}
