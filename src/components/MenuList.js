@@ -54,12 +54,7 @@ const INITIAL_ITEMS = [{
 
 
 function MenuList() {
-    
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const [image, setImage] = useState("");
-    const [category, setCategory] = useState("");
+
     const [cart, setCart] = useState([]);
     const [menuItem, setMenuItem] = useState(INITIAL_ITEMS);
     const [selectedCategory, setSelectedCategory] = useState("");
