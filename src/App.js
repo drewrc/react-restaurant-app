@@ -16,7 +16,6 @@ function App() {
     <header><div className="header-content">
       <Navbar bg="light" expand="lg">
       <Container>
-      <img src="/assets/pizzalogo.png"/>
         <Navbar.Brand href="#home">Vic's Pizza</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
