@@ -97,7 +97,10 @@ function MenuList() {
     //this function takes each item in the items array and uses .reduce to calculate TOTAL PRICE OF CART
     const Cart = ({ items }) => {
     //use parseFloat to convert item.price string into floating #
-        const total = items.reduce((acc, item) => acc + parseFloat(item.price), 0);
+        const subTotal = items.reduce((acc, item) => acc + parseFloat(item.price), 0);
+         // Save the subtotal to local storage
+         localStorage.setItem("subtotal", subTotal.toFixed(2));
+
         return (
           <div>
             <h2>Order Check Out:</h2>
@@ -112,7 +115,7 @@ function MenuList() {
             </ul>
             <div>
             {/* .toFixed adds .00 to price */}
-              Order Total: ${total.toFixed(2)}
+              Order Total: ${subTotal.toFixed(2)}
             </div>
           </div>
         );
