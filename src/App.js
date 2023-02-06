@@ -16,8 +16,8 @@ function App() {
     <div>
     <header><div className="header-content">
       <Navbar bg="light" expand="lg">
-      <Container>
-      <img src={require("./components/pizzalogo.png")}/>
+      <Container className='site-nav'>
+      <img className="image-logo" src={require("./components/pizzalogo.png")}/>
         <Navbar.Brand href="#home">Vic's Pizza</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
