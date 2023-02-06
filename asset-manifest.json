@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.cd94eb19.css",
-    "main.js": "/my-app/static/js/main.21a93372.js",
-    "static/js/787.c8ed627b.chunk.js": "/my-app/static/js/787.c8ed627b.chunk.js",
-    "index.html": "/my-app/index.html",
-    "main.cd94eb19.css.map": "/my-app/static/css/main.cd94eb19.css.map",
-    "main.21a93372.js.map": "/my-app/static/js/main.21a93372.js.map",
-    "787.c8ed627b.chunk.js.map": "/my-app/static/js/787.c8ed627b.chunk.js.map"
+    "main.css": "/react-resturant-app/static/css/main.cd94eb19.css",
+    "main.js": "/react-resturant-app/static/js/main.313b3034.js",
+    "static/js/787.c8ed627b.chunk.js": "/react-resturant-app/static/js/787.c8ed627b.chunk.js",
+    "static/media/pizzalogo.png": "/react-resturant-app/static/media/pizzalogo.a248be52a6d76c18be35.png",
+    "index.html": "/react-resturant-app/index.html",
+    "main.cd94eb19.css.map": "/react-resturant-app/static/css/main.cd94eb19.css.map",
+    "main.313b3034.js.map": "/react-resturant-app/static/js/main.313b3034.js.map",
+    "787.c8ed627b.chunk.js.map": "/react-resturant-app/static/js/787.c8ed627b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cd94eb19.css",
-    "static/js/main.21a93372.js"
+    "static/js/main.313b3034.js"
   ]
 }
