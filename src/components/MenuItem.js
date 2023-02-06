@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Button from "react-bootstrap/Button";
 import './MenuItem.css';
 
-function MenuItem({ name, price, description, image, category, addToOrder }) {
+function MenuItem({ name, price, description, image, category, onAddToCart }) {
 
     const item = {
         name,
@@ -10,7 +10,7 @@ function MenuItem({ name, price, description, image, category, addToOrder }) {
         description,
         image,
         category,
-        addToOrder,
+        onAddToCart,
     };
 
     return (
@@ -18,7 +18,14 @@ function MenuItem({ name, price, description, image, category, addToOrder }) {
             <div className='item-name'>{name}</div>
             <div>Price: {price}</div>
             <div>{description}</div>
-            <div><Button variant="primary" type="submit">Add to cart{addToOrder}</Button></div>
+            <div>
+                <Button 
+                onClick={() => onAddToCart({ name, description, price })} 
+                variant="primary" 
+                type="submit">
+                Add to Cart
+                </Button>
+            </div>
         </div>
     );
   }

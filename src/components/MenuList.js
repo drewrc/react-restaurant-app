@@ -4,48 +4,50 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './MenuList.css';
 import { useState } from 'react';
+import Order from "./order.js";
+
 
 //array of menu items 
 const INITIAL_ITEMS = [{
     name: "pizza by the slice",
     description: "Fresh-baked, homemade crust, topped with house-made marinara and mozerella cheese",
-    price: "$8.00",
+    price: "8.00",
     category: "entree",
 },
 {
     name: "pasta",
     description: "House-made fettuccine or marinara. Served w/ choice of side.",
-    price: "$15.00",
+    price: "15.00",
     category: "entree",
 },
 {
     name: "large pizza",
     description: "14inch pizza divided in 8 slices.",
-    price: "$20.00",
+    price: "20.00",
     category: "entree",
 },
 {
     name: "salad",
     description: "House or caesar. Add chicken or steak for additional $2.00.",
-    price: "$8.00",
+    price: "8.00",
     category: "side",
 },
 {
     name: "breadsticks",
     description: "Made fresh to order!",
-    price: "$5.00",
+    price: "5.00",
     category: "side",
 },
 {
     name: "lava cake",
     description: "Chocolate cake with warm, goey center!",
-    price: "$8.00",
+    price: "8.00",
     category: "dessert",
 },
 {
     name: "cheesecake",
     description: "New york style. Top with chocolate drizzle or cherry topping!",
-    price: "$8.00",
+    price: "8.00",
     category: "dessert",
 },
 ];
@@ -58,14 +60,20 @@ function MenuList() {
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
     const [category, setCategory] = useState("");
-    const [addToOrder, setAddToOrder] = useState(false);
+    const [cart, setCart] = useState([]);
     const [menuItem, setMenuItem] = useState(INITIAL_ITEMS);
     const [selectedCategory, setSelectedCategory] = useState("");
+    
 
     //handleClick is a callback function that updates selectedCategory's state 
     //this updates category to the string associated with the click events below
     const handleClick = category => {
         setSelectedCategory(category);
+    };
+
+    //callback function that is called when the user selects an item from the menu 
+    const handleAddToCart = item => {
+        setCart([...cart, item]);
     };
 
     //returns a menuItem component for every item whose category matches selected category associated with string on buttons in html
@@ -81,11 +89,40 @@ function MenuList() {
               name={item.name}
               description={item.description}
               price={item.price}
+              onAddToCart={handleAddToCart}
             />
         ));
     };
-      
+
+    //this function takes each item in the items array and uses .reduce to calculate TOTAL PRICE OF CART
+    const Cart = ({ items }) => {
+    //use parseFloat to convert item.price string into floating #
+        const total = items.reduce((acc, item) => acc + parseFloat(item.price), 0);
+        return (
+          <div>
+            <h2>Order Check Out:</h2>
+            <ul>
+              {items.map((item, index) => (
+                //use .map to create new array of each item and each price as template literal and display in html 
+                <div className="cart-item" key={index}>
+                {/* display name and price inside cart */}
+                  {item.name}: ${item.price}
+                </div>
+              ))}
+            </ul>
+            <div>
+            {/* .toFixed adds .00 to price */}
+              Order Total: ${total.toFixed(2)}
+            </div>
+          </div>
+        );
+      };
     
+    
+    
+    
+
+   
       return (
         <div>
           <Container>
@@ -105,7 +142,7 @@ function MenuList() {
             </Row>
             <Row>
                 <Col className="cart-options" md={12}>
-                hello, this is where the cart will go :)
+                <Cart items={cart} />
                 </Col>
             </Row>
           </Container>
