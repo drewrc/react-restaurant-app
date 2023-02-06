@@ -9,6 +9,7 @@ import Order from './components/order';
 import MenuList from './components/MenuList';
 import Home from './components/Home';
 
+
 function App() {
   const [selection, setSelection] = useState("a")
   return (
@@ -16,6 +17,7 @@ function App() {
     <header><div className="header-content">
       <Navbar bg="light" expand="lg">
       <Container>
+      <img src={require("./components/pizzalogo.png")}/>
         <Navbar.Brand href="#home">Vic's Pizza</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
