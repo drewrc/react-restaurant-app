@@ -4,10 +4,32 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./MenuList.css";
 import { useState } from "react";
-import Order from "./order.js";
+import Order from "./Order.js";
+import { nanoid } from 'nanoid'
 
 //array of menu items
 const INITIAL_ITEMS = [
+  {
+    name: "Calamari",
+    description:
+      "Freshly caught and fried to order!",
+    price: "9.00",
+    category: "appetizer",
+  },
+  {
+    name: "Mozzarella sticks",
+    description:
+      "House-made! Fan favorite!",
+    price: "5.00",
+    category: "appetizer",
+  },
+  {
+    name: "Soft drinks",
+    description:
+      "Coke products and bottled water available",
+    price: "3.00",
+    category: "drink",
+  },
   {
     name: "pizza by the slice",
     description:
@@ -80,59 +102,39 @@ function MenuList() {
         .map((item, index) => (
           //use .map to create new array containing the MenuItem components based on the items from the filtered array
           <MenuItem
-            key={index}
+            key={nanoid()}
             name={item.name}
             description={item.description}
             price={item.price}
             onAddToCart={handleAddToCart}
+            id={nanoid()}
           />
         ))
     );
   };
 
-  //this function takes each item in the items array and uses .reduce to calculate TOTAL PRICE OF CART
-  const Cart = ({ items }) => {
-    //use parseFloat to convert item.price string into floating #
-    const subTotal = items.reduce(
-      (acc, item) => acc + parseFloat(item.price),
-      0
-    );
-    // Save the subtotal to local storage
-    localStorage.setItem("subtotal", subTotal.toFixed(2));
-
-    return (
-      <div>
-        <h2>Order Check Out:</h2>
-        <ul>
-          {items.map((item, index) => (
-            //use .map to create new array of each item and each price as template literal and display in html
-            <div className="cart-item" key={index}>
-              {/* display name and price inside cart */}
-              {item.name}: ${item.price}
-            </div>
-          ))}
-        </ul>
-        <div>
-          {/* .toFixed adds .00 to price */}
-          Order Total: ${subTotal.toFixed(2)}
-        </div>
-      </div>
-    );
-  };
 
   return (
     <div>
       <Container>
         <Row className="main-menu">
           <Col md={2} className="side-options">
-            <button className="menu-button">Appetizers</button>
+            <button 
+            className="menu-button"
+              onClick={() => handleClick("appetizer")}
+            >
+              Appetizers
+              </button>
             <button
               className="menu-button"
               onClick={() => handleClick("entree")}
             >
-              Entree
+              Entrees
             </button>
-            <button className="menu-button" onClick={() => handleClick("side")}>
+            <button 
+            className="menu-button" 
+            onClick={() => handleClick("side")}
+            >
               Sides
             </button>
             <button
@@ -141,7 +143,12 @@ function MenuList() {
             >
               Desserts
             </button>
-            <button className="menu-button">Drinks</button>
+            <button 
+            className="menu-button"
+              onClick={() => handleClick("drink")}
+            >
+              Drinks
+              </button>
           </Col>
           <Col md={10}>
             <section className="selected-menu-container">
@@ -151,7 +158,8 @@ function MenuList() {
         </Row>
         <Row>
           <Col className="cart-options" md={12}>
-            <Cart items={cart} />
+           {/*} <Order items={cart} />*/}
+           <Order items={cart} cart={cart} setCart={setCart} />
           </Col>
         </Row>
       </Container>
