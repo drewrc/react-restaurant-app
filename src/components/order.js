@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function Order({ items, cart, setCart }) {
 
+
   //define subTotal as items array.reduce ... parseFloat converts string to floating #
   const subTotal = items.reduce((acc, item) => acc + parseFloat(item.price), 0);
 
@@ -25,6 +26,10 @@ function Order({ items, cart, setCart }) {
       </button>
     </div>
   ));
+
+
+    // Save the subtotal to local storage
+    localStorage.setItem("subtotal", subTotal.toFixed(2));
 
   return (
     <div>
