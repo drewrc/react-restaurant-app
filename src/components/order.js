@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 function Order({ items, cart, setCart }) {
-
+  const [successMessage, setSuccessMessage] = useState("");
 
   //define subTotal as items array.reduce ... parseFloat converts string to floating #
   const subTotal = items.reduce((acc, item) => acc + parseFloat(item.price), 0);
@@ -27,18 +27,29 @@ function Order({ items, cart, setCart }) {
     </div>
   ));
 
-
-    // Save the subtotal to local storage
-    localStorage.setItem("subtotal", subTotal.toFixed(2));
+ 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      //this saves the order information to the local storage using setItem method of localStorage object
+      //key for the saved data is "order" and the value is a JSON string of an object 'cart' items and subtotal
+      localStorage.setItem("order", JSON.stringify({ items: cart, subtotal: subTotal.toFixed(2) }));
+      //reset cart
+      setCart([]);
+      setSuccessMessage("Thank you. Your order has been submitted successfully! Please check local storage in the console. :) Pick up in 30 min!");
+    };
 
   return (
     <div>
+       {successMessage && <div>{successMessage}</div>}
+    <form onSubmit={handleSubmit}>
       <h2>Order Check Out:</h2>
       {/* HTML for cart */}
       {cartHTML}
       {/* display subtotal + .toFixed adds .00 to price */}
       <div>Order Total: $ {subTotal.toFixed(2)}</div>
-    </div>
+      <button type="submit">Submit Order</button>
+      </form>
+      </div>
   );
 }
 
