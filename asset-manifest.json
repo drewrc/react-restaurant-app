@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-restaurant-app/static/css/main.84d8d657.css",
-    "main.js": "/react-restaurant-app/static/js/main.a7909e58.js",
+    "main.js": "/react-restaurant-app/static/js/main.986c6d40.js",
     "static/js/787.c8ed627b.chunk.js": "/react-restaurant-app/static/js/787.c8ed627b.chunk.js",
     "static/media/spagetti.png": "/react-restaurant-app/static/media/spagetti.3a5e1819c517f11da068.png",
     "static/media/pizzabanner.png": "/react-restaurant-app/static/media/pizzabanner.0595883bd8a94f4ab809.png",
@@ -9,11 +9,11 @@
     "static/media/pizzalogo.png": "/react-restaurant-app/static/media/pizzalogo.a248be52a6d76c18be35.png",
     "index.html": "/react-restaurant-app/index.html",
     "main.84d8d657.css.map": "/react-restaurant-app/static/css/main.84d8d657.css.map",
-    "main.a7909e58.js.map": "/react-restaurant-app/static/js/main.a7909e58.js.map",
+    "main.986c6d40.js.map": "/react-restaurant-app/static/js/main.986c6d40.js.map",
     "787.c8ed627b.chunk.js.map": "/react-restaurant-app/static/js/787.c8ed627b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84d8d657.css",
-    "static/js/main.a7909e58.js"
+    "static/js/main.986c6d40.js"
   ]
 }
