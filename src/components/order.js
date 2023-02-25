@@ -33,8 +33,10 @@ function Order({ items, cart, setCart }) {
       //this saves the order information to the local storage using setItem method of localStorage object
       //key for the saved data is "order" and the value is a JSON string of an object 'cart' items and subtotal
       localStorage.setItem("order", JSON.stringify({ items: cart, subtotal: subTotal.toFixed(2) }));
+      console.log(localStorage)
       //reset cart
       setCart([]);
+     
       setSuccessMessage("Thank you. Your order has been submitted successfully! Please check local storage in the console. :) Pick up in 30 min!");
     };
 
